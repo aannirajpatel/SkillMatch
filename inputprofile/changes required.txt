@@ -1,0 +1,34 @@
+1) In all form.php type files in this folder, add the following lines of php at top:
+
+<?php
+	include('../includes/auth.php');
+?>
+
+2) In certificateform.php do this:
+
+	(i). Go to the ajax area
+	(ii). Youll see something like this:
+
+      $('#submit').click(function(){            
+           $.ajax({  
+                url:"certificateinsert.php",  
+                method:"POST",  
+                data:$('#add_name').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+
+	(iii). Add a line to the success section like this:
+		success:function(data){
+			alert(data);
+			$('#add_name')[0].reset();
+			window.location.replace('../dashboard/dashboard.php');
+		}
+
+3) In all insert PHP files, add the line at top of PHP code (inside already existing PHP tags, obviously. No need for new PHP tag creation)
+	include('../includes/auth.php');
+
+4) In all insert PHP files, change the "17BCE0940" to $_SESSION["username"]
