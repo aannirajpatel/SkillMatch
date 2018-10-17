@@ -1,0 +1,98 @@
+*
+{
+	font-family: 'Montserrat', sans-serif;
+}
+
+html{
+	min-height:100%;
+ 	background:linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("../img/back3.jpg");
+ 	background-size:cover;
+ 	color:white;
+
+}
+
+nav{
+	position: sticky;
+	top:0px;
+	left: 0px;
+	z-index: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #444;
+}
+
+nav li{
+    float: right;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active), #searchButton:hover {
+    background-color: #3a3a3a;
+}
+
+nav .active{
+    background-color: #ff6347;
+}
+
+nav form{
+	padding-top: 8px;
+	position: relative;
+	right: 10px;
+}
+
+#searchInput{
+	color: black;
+	width: 50vw;
+	height: 25px;
+}
+
+#searchButton{
+	border: 1px solid grey;
+	font-size:16px;
+	height: 35px;
+	color:white;
+	background:#444;
+}
+
+#logo{
+	float: left;
+	width: 20vw;
+}
+
+header{
+	text-align: center;
+}
+
+.about{
+	border-radius: 15px;
+	width: 18vw;
+	position: relative;
+	top:10vh;
+	margin:auto;
+	background: white;
+	padding: 40px 20px 40px 20px;
+}
+
+#loginForm{
+	width: 18vw;
+	text-align: center;
+}
+
+#loginForm input{
+	width: 80%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding:5px;
+}

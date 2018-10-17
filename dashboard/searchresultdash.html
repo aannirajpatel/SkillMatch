@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SkillMatch</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="../css/searchresultdash.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="active" onclick="showDashOptions()"><a>User</a></li>
+            <li><a href="../logout/logout.html">Logout</a></li>
+            <li>
+                <form name="searchForm" id="searchForm" action="./searchresultdash.html">
+
+                    <input type="text" name="searchText" id="searchInput" />
+                    <input type="submit" value="Search" id="searchButton" />
+
+                </form>
+            </li>
+            <li id="logo"><a href="../index.html">SkillMatch</a></li>
+        </ul>
+    </nav>
+    <div id="dashOptions"><a href="./dashboard.html">Dashboard</a></div>
+    <header>
+        <h1>Search Results</h1></header>
+    <section class="results">
+        <article>Result 1</article>
+        <article>Result 2</article>
+    </section>
+    <script>
+        var x = 0;
+        document.getElementById("dashOptions").style.visibility = "hidden";
+
+        function showDashOptions() {
+            if (window.x % 2 == 1) {
+                document.getElementById("dashOptions").style.visibility = "visible";
+            }
+          	else {
+                document.getElementById("dashOptions").style.visibility = "hidden";
+            }
+            window.x += 1;
+        }
+    </script>
+</body>
+
+</html>
