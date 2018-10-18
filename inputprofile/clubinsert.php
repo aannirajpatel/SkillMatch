@@ -1,5 +1,7 @@
  <?php  
- $connect = mysqli_connect("localhost", "root", "", "skillmatch");  
+	include('../includes/auth.php');
+ 
+$connect = mysqli_connect("localhost", "root", "", "skillmatch");  
  $number = count($_POST["name"]);
  if($number > 0)  
  {  
@@ -7,8 +9,8 @@
       {  
            if(trim($_POST["name"][$i] != ''))  
            {  
-                $reg = "17BCE0940"; /*"17BCE0897" WILL CHANGE TO $_SESSION["regID"] for an active login session*/
-				$sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
+                $reg =$_SESSION["username"];
+                $sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
 				      
 				$sql = "INSERT INTO clubs(reg_no,club_name) VALUES('".$reg."','".$sname."')";  
                 mysqli_query($connect, $sql);  

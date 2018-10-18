@@ -1,5 +1,7 @@
  <?php  
- $connect = mysqli_connect("localhost", "root", "", "skillmatch");  
+	include('../includes/auth.php');
+
+$connect = mysqli_connect("localhost", "root", "", "skillmatch");  
  $number = count($_POST["name"]);
  if($number > 0)  
  {  
@@ -7,7 +9,7 @@
       {  
            if(trim($_POST["name"][$i] != '') && trim($_POST["num"][$i] != ''))  
            {  
-                $reg = "17BCE0940"; /*"17BCE0940" WILL CHANGE TO $_SESSION["regID"] for an active login session*/
+                $reg = $_SESSION["username"];
 				$sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
 				$snum  = mysqli_real_escape_string($connect, $_POST["num"][$i]);
 		
