@@ -21,7 +21,7 @@
                                     <tr>  
                                          <td><input type="text" name="name[]" placeholder="Enter field of certificate" class="form-control name_list" /></td>  
 										 <td><input type="text" name="num[]" placeholder="Issued by" class="form-control num_list" /></td>  
-                                        <td><input type="text" name="year[]" placeholder="Year" class="form-control year_list" /></td>  
+                                        <td><input type="date" name="year[]" placeholder="Year" class="form-control year_list" /></td>  
 								        <td><input type="text" name="url[]" placeholder="Enter URL " class="form-control url_list" /></td>  
 										 		  
                                         <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
@@ -39,7 +39,7 @@
       var i=1;  
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter field of certificate " class="form-control name_list" /></td><td><input type="text" name="num[]" placeholder="Issued by" class="form-control num_list" /></td><td><input type="text" name="year[]" placeholder="Year" class="form-control year_list" /></td><td><input type="text" name="url[]" placeholder="Enter URL " class="form-control url_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter field of certificate " class="form-control name_list" /></td><td><input type="text" name="num[]" placeholder="Issued by" class="form-control num_list" /></td><td><input type="date" name="year[]" placeholder="Year" class="form-control year_list" /></td><td><input type="text" name="url[]" placeholder="Enter URL " class="form-control url_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
       });  
       $(document).on('click', '.btn_remove', function(){  
            var button_id = $(this).attr("id");   

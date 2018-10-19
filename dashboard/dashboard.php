@@ -39,8 +39,8 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
         <h1>Hello <?php echo $_SESSION['fname']; ?>! Welcome to Dashboard</h1></header>
     <section class="profile">
         <article id="profileDetails">
-            <h2>Profile Details</h2> <a href = "../inputprofile/profileform.php"><img src="../img/edit.png" height="50 px" width="50 px"></img></a>
-            <br>
+            <h2>Profile Details <a href = "../inputprofile/profileform.php"><img src="../img/edit.png" height="25 px" width="25 px"></img></a>
+</h2>             <br>
             <h3>Skills</h3>
             <hr>
             <table>
