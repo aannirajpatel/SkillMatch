@@ -1,0 +1,13 @@
+By Aan Patel at 6:49 PM 21/10/18:
+
+1)In the file inputprofile/skillform.php
+	Change all column names by adding
+	@Vishva please reverse this change and send me new DB in exported 	SQL format.
+
+2)In the file dashboard/dashboard.php
+	Change search redirection to actual search/search.php file.
+	@Vishva Check for any column name inconsistencies.
+
+3)In the file search/search.php
+	Created search functionality.
+	@Vishva here also for skills table I've mentioned columns skill_name and 	skill_level. Please change it to skillname and skilllevel.

@@ -25,9 +25,9 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
             <li><a href="../logout/logout.php">Logout</a></li>
 			<li class="active"><a>User</a></li>
             <li>
-                <form name="searchForm" id="searchForm" action="./searchresultdash.html">
+                <form name="searchForm" id="searchForm" action="../search/search.php" method="get">
 
-                    <input type="text" name="searchText" id="searchInput" />
+                    <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
 
                 </form>
