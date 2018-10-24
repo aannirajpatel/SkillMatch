@@ -44,8 +44,8 @@ $lname = $name['last_name'];
         <h1>Profile of <?php echo $fname." ".$lname." (".$regno.")"; ?></h1></header>
     <section class="profile">
         <article id="profileDetails">
-            <h2>Profile Details <a href = "../inputprofile/profileform.php"><img src="../img/edit.png" height="25 px" width="25 px"></img></a>
-</h2>             <br>
+            <h2>Profile Details</h2>
+			<br>
             <h3>Skills</h3>
             <hr>
             <table>
@@ -290,14 +290,16 @@ echo "</table>";
             <br>
         </article>
         <article id="contactReq">
-            <h2>Contact Requests</h2>
-            <br>
+            <?php
+				echo "<form action=\"request.php?query=$regno\" method=\"GET\"><input id=\"makeRequest\" type=\"submit\" value=\"Request contact details\"></form>";
+			?>
+            <!--
             <div class="request">
                 <h3>From: Sender's Username</h3>
                 <br>
                 <ul>
                     <li>
-                        <input type="button" value="Accept" id="acceptRequest" />
+                        <input type="button" value="Request" id="acceptRequest" />
                     </li>
                     <li>
                         <input type="button" value="Reject" id="rejectRequest" />
@@ -323,6 +325,7 @@ echo "</table>";
                     </li>
                 </ul>
             </div>
+		-->
         </article>
     </section>
 </body>

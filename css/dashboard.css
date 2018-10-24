@@ -146,3 +146,18 @@ header{
 #banRequest{
 	background:firebrick;
 }
+
+#makeRequest{
+	display: block;
+    font-size: 16px;
+    text-align: center;
+	/*    padding: 14px 16px;*/
+    padding:10px;
+    margin-right: 10px;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 15px;
+    color: white;
+	background: rgba(66,139,202,1);
+	visibility: hidden;
+}

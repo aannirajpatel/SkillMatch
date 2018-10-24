@@ -83,7 +83,7 @@ if (strlen($query) >= $min_len) {
             }
 			$detq = "SELECT first_name,last_name from user_info where reg_no='$myreg'";
 			$detr = mysqli_fetch_array(mysqli_query($con, $detq));
-			echo "<article style=\"height:auto;\"><a href=\"profileshow.php?query=$myreg\">" . $detr['first_name'] . " " . $detr['last_name'] . " (" . $res['reg_no'] . ")<br><br>$bio</article>";
+			echo "<article style=\"height:auto;padding:20px;\"><a href=\"profileshow.php?query=$myreg\">" . $detr['first_name'] . " " . $detr['last_name'] . " (" . $res['reg_no'] . ")</a><br><br>$bio</article>";
 		}
 	}
 	else {
