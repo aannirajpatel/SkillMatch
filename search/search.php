@@ -58,24 +58,32 @@ if (strlen($query) >= $min_len) {
 	foreach($query as $key => $value) {
 		$count++;
 		if ($count > 1) {
-			$myquery = $myquery . " OR (`skill_name` LIKE '%" . $value . "%')";
+			$myquery = $myquery . " OR (`skillname` LIKE '%" . $value . "%')";
 		}
 		else {
-			$myquery = $myquery . "(`skill_name` LIKE '%" . $value . "%')";
+			$myquery = $myquery . "(`skillname` LIKE '%" . $value . "%')";
 		}
 	}
 
-	$myquery = $myquery . " GROUP BY `reg_no` ORDER BY count(`reg_no`) DESC,`skill_level` DESC";
+	$myquery = $myquery . " GROUP BY `reg_no` ORDER BY count(`reg_no`) DESC,`skilllevel` DESC,`reg_no`";
 	$raw_results = mysqli_query($con, $myquery) or die(mysqli_error($con));
-
-	// echo "Total ".mysqli_num_rows($raw_results)." search results for query: ".$query;
+	echo "<article style=\"height:5vh;\">Search returned ".mysqli_num_rows($raw_results)." people.</article>";
 
 	if (mysqli_num_rows($raw_results) > 0) {
 		while ($res = mysqli_fetch_array($raw_results)) {
 			$myreg = $res['reg_no'];
+            $bioq = "select bio from user_info where reg_no = '$myreg'";
+            $bio_res = mysqli_query($con, $bioq) or die(mysqli_error($con));
+            if(mysqli_num_rows($raw_results) >0 ){
+            $bio = mysqli_fetch_array($bio_res);
+            $bio = $bio['bio'];
+            }
+            else{
+                $bio = "";
+            }
 			$detq = "SELECT first_name,last_name from user_info where reg_no='$myreg'";
 			$detr = mysqli_fetch_array(mysqli_query($con, $detq));
-			echo "<article>" . $detr['first_name'] . " " . $detr['last_name'] . " (" . $res['reg_no'] . ")</article>";
+			echo "<article style=\"height:auto;\"><a href=\"profileshow.php?query=$myreg\">" . $detr['first_name'] . " " . $detr['last_name'] . " (" . $res['reg_no'] . ")<br><br>$bio</article>";
 		}
 	}
 	else {

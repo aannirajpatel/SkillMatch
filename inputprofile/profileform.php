@@ -17,20 +17,15 @@ include("../includes/auth.php");
                 <div class="form-group">  
                      <form name="add_name" id="add_name">  
                           <div class="table-responsive">  
-                               <table class="table table-bordered" id="dynamic_field">  
+                                 
                                    <label for="year">Date of Birth</label><br/>
-                                   <tr><input type="date" name="year" placeholder="Date of Birth" class="form-control year_list" /></tr> 
+                                   <input style="width:12vw" type="date" name="year" placeholder="Date of Birth" class="form-control year_list" />
                                    <label for="num">Contact Number</label><br/>
-                                   <tr><input type="text" name="num" placeholder="Contact number" class="form-control num_list" /></tr>  
+                                   <input style="width:12vw" type="text" name="num" placeholder="Contact number" class="form-control num_list" />
                                    <label for="in">City</label><br/>
-                                   <tr><input type="text" name="in" placeholder="City" class="form-control in_list" /></tr>  
-                                   <br>
-                                   <br>
-                                   
-                                   
-                               </table>  
-                              
-                              
+                                   <input style="width:12vw" type="text" name="in" placeholder="City" class="form-control in_list" />
+                                   <label for="bio">Bio</label><br/>
+                              <textarea type="text" name="bio" style="height:10vw;width:;vertical_align:top" placeholder="Enter something about yourself. This will be displayed when people search for you!" class="form-control in_list"></textarea>
                               <input type="button" name="submit" id="submit" class="btn btn-info" value="Next" />  
                           </div>  
                          

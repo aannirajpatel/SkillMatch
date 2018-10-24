@@ -1,6 +1,6 @@
 By Aan Patel at 6:49 PM 21/10/18:
 
-1)In the file inputprofile/skillform.php
+1)In the file inputprofile/skillinsert.php
 	Change all column names by adding
 	@Vishva please reverse this change and send me new DB in exported 	SQL format.
 
@@ -10,4 +10,5 @@ By Aan Patel at 6:49 PM 21/10/18:
 
 3)In the file search/search.php
 	Created search functionality.
-	@Vishva here also for skills table I've mentioned columns skill_name and 	skill_level. Please change it to skillname and skilllevel.
+	@Vishva here also for skills table I've mentioned columns skill_name and 	
+skill_level. Please change it to skillname and skilllevel.
