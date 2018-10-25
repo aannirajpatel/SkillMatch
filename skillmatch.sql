@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2018 at 03:12 PM
+-- Generation Time: Oct 25, 2018 at 09:10 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -56,6 +56,20 @@ INSERT INTO `certificate` (`reg_no`, `certificate_field`, `issued_by`, `certifie
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `senderID` varchar(9) NOT NULL,
+  `receiverID` varchar(9) NOT NULL,
+  `message` text NOT NULL,
+  `sendtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `seen` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `clubs`
 --
 
@@ -86,10 +100,20 @@ INSERT INTO `clubs` (`reg_no`, `club_id`, `club_name`) VALUES
 CREATE TABLE `contact` (
   `senderID` varchar(10) NOT NULL,
   `receiverID` varchar(10) NOT NULL,
-  `accept` varchar(50) NOT NULL,
-  `reject` varchar(50) NOT NULL,
-  `wait` varchar(50) NOT NULL
+  `accept` tinyint(1) NOT NULL,
+  `reject` tinyint(1) NOT NULL,
+  `wait` tinyint(1) NOT NULL,
+  `ban` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`senderID`, `receiverID`, `accept`, `reject`, `wait`, `ban`) VALUES
+('16BME1234', '17BCE2066', 1, 0, 0, 0),
+('17BME0897', '16BME1234', 1, 0, 0, 0),
+('17BME0897', '17BCE2066', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -308,7 +332,8 @@ INSERT INTO `user_info` (`reg_no`, `email`, `password`, `first_name`, `last_name
 ('17BCE0897', 'patelaan13@gmail.com', 'password', 'Aan', 'Patel', '2018-10-09', 123456789, 'Vadodara', ''),
 ('17BCE0940', 'vishvapatel652@gmail.com', 'vp', 'Vishva', 'Patel', '0000-00-00', NULL, NULL, ''),
 ('17BCE0979', 'devalmodi1712@gmail.com', 'password', 'Deval', 'Modi', '0000-00-00', NULL, NULL, ''),
-('17BCE2066', '99ansh@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ansh', 'Mehta', '1999-12-06', 2147483647, 'Ahmedabad', 'I\'m a computer engineer keen to learn new things. My primary interests are Databases and Machine Learning.');
+('17BCE2066', '99ansh@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Ansh', 'Mehta', '1999-12-06', 2147483647, 'Ahmedabad', 'I\'m a computer engineer keen to learn new things. My primary interests are Databases and Machine Learning.'),
+('17BME0897', 'testemail@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Amazing', 'Man', '0000-00-00', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
