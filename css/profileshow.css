@@ -96,20 +96,15 @@ header{
 }
 
 
-.contactReq{
+#contactReq{
 	padding-bottom: 15px;	
 }
 
 .request{
 	display: block;
+	border: 1px solid grey;
 	padding: 15px;
 	overflow: hidden;
-	border: 1px solid #ccc;
-	border-radius:10px;
-}
-
-#noRequests{
-	border: 1px solid firebrick;
 }
 
 .request h3{
@@ -164,12 +159,4 @@ header{
     border-radius: 15px;
     color: white;
     background: rgba(66,139,202,1);
-}
-
-#contactTable{
-	text-align: left;
-}
-
-#contactTable th,#contactTable td{
-	padding:5px;
 }

@@ -75,7 +75,7 @@ header{
 	text-align: center;
 }
 
-.profile{
+.chat{
 	color: black;
 	border-radius: 15px;
 	width: 80vw;
@@ -86,9 +86,49 @@ header{
 	padding: 10px 20px 40px 20px;
 }
 
-.profile article{
-	border-bottom:1px dotted grey;
-	padding-top: 10px;
+.sendmessages{
+	margin-top: 10px;
+	border-bottom: 1px solid #ccc;
+	padding: 0px 0px 10px 0px;
+}
+
+#sendBox{
+	width: 100%;
+	height: 100px;
+}
+
+#makeRequest{
+	display: block;
+    font-size: 16px;
+    text-align: center;
+	/*    padding: 14px 16px;*/
+    padding:10px;
+    margin-right: 10px;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 15px;
+    color: white;
+    background: rgba(66,139,202,1);
+}
+
+.showmessages{
+	margin-top: 10px;
+	padding: 0px 0px 10px 0px;
+}
+
+.sent{
+	margin-top: 10px;
+	width: 50vw;
+	margin-left: 25vw;
+	background-color: #DCF8C6;
+	padding: 10px;
+}
+
+.received{
+	margin-top: 10px;
+	width: 50vw;
+	background-color: #eee;
+	padding: 10px;
 }
 
 #profileDetails td,#profileDetails th{
@@ -96,20 +136,15 @@ header{
 }
 
 
-.contactReq{
+#contactReq{
 	padding-bottom: 15px;	
 }
 
 .request{
 	display: block;
+	border: 1px solid grey;
 	padding: 15px;
 	overflow: hidden;
-	border: 1px solid #ccc;
-	border-radius:10px;
-}
-
-#noRequests{
-	border: 1px solid firebrick;
 }
 
 .request h3{
@@ -150,26 +185,4 @@ header{
 
 #banRequest{
 	background:firebrick;
-}
-
-#makeRequest{
-	display: block;
-    font-size: 16px;
-    text-align: center;
-	/*    padding: 14px 16px;*/
-    padding:10px;
-    margin-right: 10px;
-    text-decoration: none;
-    border: 0px;
-    border-radius: 15px;
-    color: white;
-    background: rgba(66,139,202,1);
-}
-
-#contactTable{
-	text-align: left;
-}
-
-#contactTable th,#contactTable td{
-	padding:5px;
 }
