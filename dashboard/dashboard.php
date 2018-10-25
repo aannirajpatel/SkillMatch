@@ -453,7 +453,7 @@ else{
                     echo "<tr><td><a href=\"tel:$phone\">$phone</a></td><td><a href=\"mailto:$email\">$email</a></td><td>$city</td>";
                     echo "</table>";
                     echo "<br>";
-                    echo "<form action=\"../chat/chat.php\" method=\"POST\"><button name=\"couser\" id=\"makeRequest\" type=\"submit\" value=\"$rid\">MESSAGES</button></form>";
+                    echo "<form action=\"../chat/chat.php\" method=\"POST\"><input type=\"hidden\" name=\"couser\" value=\"$rid\"></input><button id=\"makeRequest\" type=\"submit\" value=\"$rid\">CHAT</button></form>";
                     echo "</div>";
                     echo "<br>";
                 }

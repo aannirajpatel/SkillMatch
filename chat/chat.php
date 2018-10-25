@@ -40,9 +40,12 @@ $lname = $cousernameResult['last_name'];
         <h1>Chat With <?php echo $fname." ".$lname." (".$couser.")"; ?><span id="onlineOrOffline"></span></h1></header>
     <section class="chat">
         <div class="sendmessages">
-            <form action="" method="POST">
+            <form id="messageForm" method="post">
                 <textarea id="sendBox" type="text" name="message" placeholder="Enter your message here"></textarea>
-                <button type="submit" name="submitMessage" value="$couser" id="makeRequest">SEND</button>
+                <?php
+                    echo "<input type=\"hidden\" name=\"couser\" value=\"$couser\"></input>";
+                ?>
+                <button type="submit" name="submitMessage" id="makeRequest">SEND</button>
             </form>
         </div>
         <div class="showmessages">
@@ -59,4 +62,4 @@ $lname = $cousernameResult['last_name'];
 </body>
 
 </html>
-<!-- <script src="chatUpdater.js"></script> -->
+<script src="../js/chatUpdater.js"></script>
