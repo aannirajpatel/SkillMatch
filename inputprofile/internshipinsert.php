@@ -1,7 +1,7 @@
  <?php  
 	include('../includes/auth.php');
 
- $connect = mysqli_connect("localhost", "root", "", "skillmatch");  
+	include('../includes/db.php');
  $number = count($_POST["name"]);
  if($number > 0)  
  {  
@@ -10,12 +10,12 @@
            if(trim($_POST["name"][$i] != '') && trim($_POST["num"][$i] != ''))  
            {  
                 $reg =$_SESSION["username"];
-                $sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
-				$snum  = mysqli_real_escape_string($connect, $_POST["num"][$i]);
-               	$send  = mysqli_real_escape_string($connect, $_POST["end"][$i]);
+                $sname  = mysqli_real_escape_string($con, $_POST["name"][$i]);
+				$snum  = mysqli_real_escape_string($con, $_POST["num"][$i]);
+               	$send  = mysqli_real_escape_string($con, $_POST["end"][$i]);
 		
 				$sql = "INSERT INTO internships(reg_no,recuitor,istart,iend) VALUES('".$reg."','".$sname."','".$snum."','".$send."')";  
-                mysqli_query($connect, $sql);  
+                mysqli_query($con, $sql);  
            }
       }  
       echo "Data Inserted";  

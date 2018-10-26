@@ -15,7 +15,7 @@
             <li><a href="./signup/signup.php">Sign Up</a></li>
             <li><a href="./login/login.php">Login</a></li>
             <li>
-                <form name="searchForm" id="searchForm" action="./search/searchresultdemo.html">
+                <form name="searchForm" id="searchForm" action="./search/search.php" method="GET">
 
                     <input type="text" name="searchText" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />

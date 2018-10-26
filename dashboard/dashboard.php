@@ -1,6 +1,6 @@
 <?php
-	require('../includes/db.php');
 	include("../includes/auth.php");
+	require('../includes/db.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +14,8 @@
 
 <body>
 <?php
-$con = mysqli_connect("localhost", "root", "", "skillmatch");  
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
+$regno =$_SESSION['username'];
+$bio = mysqli_fetch_array(mysqli_query($con,"SELECT bio FROM user_info WHERE reg_no='$regno'"))['bio'];
 $acc=isset($_POST['accept']);
 $rej=isset($_POST['reject']);
 $ban=isset($_POST['ban']);
@@ -61,6 +57,8 @@ if($acc||$rej||$ban) mysqli_query($con,$contactExecQ) or die("Error while execut
         <article id="profileDetails">
             <h2>Profile Details <a href = "../inputprofile/profileform.php"><img src="../img/edit.png" height="25 px" width="25 px"></img></a>
 </h2>             <br>
+<h3>Bio</h3><hr><?php echo $bio;?>
+<br><br>
             <h3>Skills</h3>
             <hr>
             <table>
@@ -71,7 +69,6 @@ if($acc||$rej||$ban) mysqli_query($con,$contactExecQ) or die("Error while execut
                 
   <!-- add php here -->
 <?php
-$regno =$_SESSION['username'];
 $result = mysqli_query($con,"SELECT skillname, skilllevel FROM skills WHERE reg_no='$regno'");
 if(mysqli_num_rows($result)){
 while($row = mysqli_fetch_array($result))

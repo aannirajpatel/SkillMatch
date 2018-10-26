@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2018 at 09:10 PM
+-- Generation Time: Oct 26, 2018 at 09:15 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -63,9 +63,21 @@ CREATE TABLE `chat` (
   `senderID` varchar(9) NOT NULL,
   `receiverID` varchar(9) NOT NULL,
   `message` text NOT NULL,
-  `sendtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sendtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `seen` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`senderID`, `receiverID`, `message`, `sendtime`, `seen`) VALUES
+('16BME1234', '17BCE2066', 'Hello, Ansh!', '2018-10-26 05:53:15', 1),
+('17BCE2066', '17BCE2066', 'Hi', '2018-10-26 05:53:56', 0),
+('17BCE2066', '17BCE2066', 'Hi', '2018-10-26 05:56:22', 0),
+('17BCE2066', '16BME1234', 'Hi', '2018-10-26 05:57:38', 1),
+('16BME1234', '17BCE2066', 'This is latest message. Time should not be changed', '2018-10-26 05:59:28', 1),
+('16BME1234', '17BCE2066', 'This is vishva acc', '2018-10-26 06:00:15', 1);
 
 -- --------------------------------------------------------
 

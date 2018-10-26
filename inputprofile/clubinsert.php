@@ -1,7 +1,7 @@
  <?php  
 	include('../includes/auth.php');
- 
-$connect = mysqli_connect("localhost", "root", "", "skillmatch");  
+	include('../includes/db.php');
+include('../includes/db.php'); 
  $number = count($_POST["name"]);
  if($number > 0)  
  {  
@@ -10,10 +10,10 @@ $connect = mysqli_connect("localhost", "root", "", "skillmatch");
            if(trim($_POST["name"][$i] != ''))  
            {  
                 $reg =$_SESSION["username"];
-                $sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
+                $sname  = mysqli_real_escape_string($con, $_POST["name"][$i]);
 				      
 				$sql = "INSERT INTO clubs(reg_no,club_name) VALUES('".$reg."','".$sname."')";  
-                mysqli_query($connect, $sql);  
+                mysqli_query($con, $sql);  
            }
       }  
       echo "Data Inserted";  

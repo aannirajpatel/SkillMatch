@@ -1,7 +1,7 @@
  <?php  
 	include('../includes/auth.php');
 
-$connect = mysqli_connect("localhost", "root", "", "skillmatch");  
+include('../includes/db.php'); 
  $number = count($_POST["name"]);
  if($number > 0)  
  {  
@@ -10,11 +10,11 @@ $connect = mysqli_connect("localhost", "root", "", "skillmatch");
            if(trim($_POST["name"][$i] != '') && trim($_POST["num"][$i] != ''))  
            {  
                 $reg = $_SESSION["username"];
-				$sname  = mysqli_real_escape_string($connect, $_POST["name"][$i]);
-				$snum  = mysqli_real_escape_string($connect, $_POST["num"][$i]);
+				$sname  = mysqli_real_escape_string($con, $_POST["name"][$i]);
+				$snum  = mysqli_real_escape_string($con, $_POST["num"][$i]);
 		
 				$sql = "INSERT INTO projects(reg_no,project_domain,project_title) VALUES('".$reg."','".$sname."','".$snum."')";  
-                mysqli_query($connect, $sql);  
+                mysqli_query($con, $sql);  
            }
       }  
       echo "Data Inserted";  

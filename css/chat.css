@@ -88,7 +88,6 @@ header{
 
 .sendmessages{
 	margin-top: 10px;
-	border-bottom: 1px solid #ccc;
 	padding: 0px 0px 10px 0px;
 }
 
@@ -113,7 +112,10 @@ header{
 
 .showmessages{
 	margin-top: 10px;
+	border-bottom: 1px solid #ccc;
 	padding: 0px 0px 10px 0px;
+	overflow: auto;
+	max-height: 50vh;
 }
 
 .sent{
@@ -129,6 +131,11 @@ header{
 	width: 50vw;
 	background-color: #eee;
 	padding: 10px;
+}
+
+#senderinfo{
+	padding: 2px;
+	margin-bottom: 5px;
 }
 
 #profileDetails td,#profileDetails th{

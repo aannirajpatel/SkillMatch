@@ -1,4 +1,5 @@
 $(document).ready(){
+  alert(toString($('#add_name').serialize()));
 	$(document).on('click','#makeRequest',sendMessage())
 setInterval(function(){
   updateChat();
@@ -9,6 +10,7 @@ setInterval(function(){
   $.ajax({
    url:"../chat/fetchChat.php",
    method:"POST",
+   data:{"couser":$('#couserContainer').value},
    success:function(data){
     $('#').html(data);
    }

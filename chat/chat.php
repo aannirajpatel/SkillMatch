@@ -18,6 +18,7 @@
 //connection variable is $con declared in ../includes/db.php
 $couser = $_POST['couser'];
 $user = $_SESSION['username'];
+echo "<script>var couserno = \"".$couser."\";</script>";
 $cousernameRow = mysqli_query($con,"SELECT first_name,last_name from user_info where reg_no='$couser'") or die("Unable to find name of the user you are chatting with. Signup or profile creation may be improperly done by that user.");
 $cousernameResult = mysqli_fetch_array($cousernameRow);
 $fname = $cousernameResult['first_name'];
@@ -39,7 +40,19 @@ $lname = $cousernameResult['last_name'];
     <header>
         <h1>Chat With <?php echo $fname." ".$lname." (".$couser.")"; ?><span id="onlineOrOffline"></span></h1></header>
     <section class="chat">
-        <div class="sendmessages">
+        
+        <div class="showmessages" id="showmessagescont">
+<!--             <div class="received">
+                This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.
+                <div id="statsDisp">[Timestamp: 10:00PM]</div>
+            </div>
+            <div class="sent">
+                This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.
+                <div id="statsDisp"> [Timestamp:09:00PM, Seen: Yes]</div>
+            </div> -->
+        </div>
+		
+		<div class="sendmessages">
             <form id="messageForm" method="post">
                 <textarea id="sendBox" type="text" name="message" placeholder="Enter your message here"></textarea>
                 <?php
@@ -48,18 +61,8 @@ $lname = $cousernameResult['last_name'];
                 <button type="submit" name="submitMessage" id="makeRequest">SEND</button>
             </form>
         </div>
-        <div class="showmessages">
-            <div class="received">
-                This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.
-                <div id="statsDisp">[Timestamp: 10:00PM]</div>
-            </div>
-            <div class="sent">
-                This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.
-                <div id="statsDisp"> [Timestamp:09:00PM, Seen: Yes] <!-- $seen --> </div>
-            </div>
-        </div>
     </section>
 </body>
 
 </html>
-<script src="../js/chatUpdater.js"></script>
+<script type="text/javascript" src="../js/chatUpdater.js"></script>
