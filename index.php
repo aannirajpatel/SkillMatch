@@ -11,13 +11,13 @@
 
     <nav>
         <ul>
-            <li class="active"><a href="#">Home</a></li>
             <li><a href="./signup/signup.php">Sign Up</a></li>
             <li><a href="./login/login.php">Login</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li>
-                <form name="searchForm" id="searchForm" action="./search/search.php" method="GET">
+                <form name="searchForm" id="searchForm" action="./search/searchnonlogin.php" method="GET">
 
-                    <input type="text" name="searchText" id="searchInput" />
+                    <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
 
                 </form>

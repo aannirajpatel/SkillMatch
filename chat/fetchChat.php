@@ -3,6 +3,7 @@
     include("../includes/auth.php");
     $user = $_SESSION['username'];
     $couser = $_POST['couser'];
+    $couserfname = mysqli_fetch_array(mysqli_query($con,"SELECT first_name FROM user_info WHERE reg_no = '$couser'"))['first_name'];
     $msgQ = "SELECT * FROM chat WHERE (senderID='$user' AND receiverID='$couser') OR (senderID='$couser' AND receiverID='$user') ORDER BY sendtime ASC";
     $msgRows=mysqli_query($con,$msgQ) or die("Error fetching chat");
     $output = "";
@@ -28,7 +29,7 @@
     			//output as message on LHS as its message by couser.
     			$sendtime = $chatData['sendtime'];
     			$output.='
-    				<div class="received"><div id="senderinfo"><a href="../search/profileshow.php?query='.$couser.'">'.$couser.'</a></div>'.
+    				<div class="received"><div id="senderinfo"><a href="../search/profileshow.php?query='.$couser.'">'.$couserfname.'</a></div>'.
     					$chatmsg.'
     					<div id="statsdisp"> [Send time: '.$sendtime.']</div>
     				</div>

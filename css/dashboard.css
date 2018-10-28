@@ -1,8 +1,10 @@
+/*FOR ALL ELEMENTS*/
 *
 {
 	font-family: 'Montserrat', sans-serif;
 }
 
+/*NAV AND HEADER*/
 html{
 	min-height:100%;
  	background:linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("../img/back5.jpg");
@@ -43,6 +45,7 @@ nav li a:hover:not(.active), #searchButton:hover {
 }
 
 nav .active{
+	cursor: pointer;
     background-color: #ff6347;
 }
 
@@ -64,6 +67,7 @@ nav form{
 	height: 35px;
 	color:white;
 	background:#444;
+	cursor: pointer;
 }
 
 #logo{
@@ -75,6 +79,24 @@ header{
 	text-align: center;
 }
 
+
+/*DROPDOWN STYLING*/
+.showBtn{
+	cursor: pointer;
+}
+
+.showBtn:hover{
+	border: 1px solid #ccc;
+}
+
+.hided, .expanded{
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+}
+
+
+/*DATA DISPLAY RELATED*/
 .profile{
 	color: black;
 	border-radius: 15px;
@@ -89,19 +111,24 @@ header{
 .profile article{
 	border-bottom:1px dotted grey;
 	padding-top: 10px;
+	padding-bottom:15px;
+}
+
+#profileDetails{
+	width:75vw;
 }
 
 #profileDetails td,#profileDetails th{
 	padding: 15px;
 }
 
-
-.contactReq{
+#contactReq{
 	padding-bottom: 15px;	
 }
 
 .request{
 	display: block;
+	margin-top: 5px;
 	padding: 15px;
 	overflow: hidden;
 	border: 1px solid #ccc;
@@ -172,4 +199,17 @@ header{
 
 #contactTable th,#contactTable td{
 	padding:5px;
+}
+
+#unread{
+	display: inline-block;
+	background: red;
+	border-radius: 15px;
+	margin-left: 2px;
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+	vertical-align: top;
+	text-align: center;
+	color: white;
 }

@@ -3,12 +3,13 @@
  include('../includes/db.php'); 
  $number = count($_POST["name"]);
  if($number > 0)  
- {  
+ {  	 $reg =$_SESSION["username"];
+	  mysqli_query($con,"DELETE FROM skills WHERE reg_no = '$reg'");
       for($i=0; $i<$number; $i++)  
       {  
            if(trim($_POST["name"][$i] != '') && trim($_POST["num"][$i] != ''))  
            {  
-                $reg = $_SESSION["username"];
+          
 				$sname  = mysqli_real_escape_string($con, $_POST["name"][$i]);
 				$snum  = mysqli_real_escape_string($con, $_POST["num"][$i]);
 				$sql = "INSERT INTO skills(reg_no,skillname,skilllevel) VALUES('".$reg."','".$sname."',".$snum.")";

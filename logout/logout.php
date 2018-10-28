@@ -18,18 +18,18 @@ if(session_destroy())
 
     <nav>
         <ul>
-            <li><a href="../index.php">Home</a></li>
             <li><a href="../signup/signup.php">Sign Up</a></li>
             <li><a href="../login/login.php">Login</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li>
-                <form name="searchForm" id="searchForm" action="../search/searchresultdemo.html">
+                <form name="searchForm" id="searchForm" action="../search/searchnonlogin.php">
 
-                    <input type="text" name="searchText" id="searchInput" />
+                    <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
 
                 </form>
             </li>
-            <li id="logo"><a href="#">SkillMatch</a></li>
+            <li id="logo"><a href="../index.php">SkillMatch</a></li>
         </ul>
     </nav>
     <header>

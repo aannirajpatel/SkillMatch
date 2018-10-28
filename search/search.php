@@ -17,16 +17,16 @@ include('../includes/db.php');
     <nav>
         
 		<ul>
-            <li><a href="../home.php">Home</a></li>
-            <li><a href="../dashboard/dashboard.php">Dashboard</a></li>
             <li><a href="../logout/logout.php">Logout</a></li>
+            <li><a href="../dashboard/dashboard.php">Dashboard</a></li>
+            <li><a href="../home/home.php">Home</a></li>
             <li>
                 <form name="searchForm" id="searchForm" action="search.php">
                     <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
                 </form>
             </li>
-            <li id="logo"><a href="#">SkillMatch</a></li>
+            <li id="logo"><a href="../home/home.php">SkillMatch</a></li>
         </ul>
 		
     </nav>

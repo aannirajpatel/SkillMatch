@@ -37,21 +37,24 @@ $query ="SELECT accept,reject,wait,senderID,receiverID from (senderID='$_SESSION
     $rid=$_POST['contactreg'];
     $contactquery ="SELECT * FROM contact WHERE (senderID='$sid' AND receiverID='$rid')OR(receiverID='$rid' AND senderID='$sid')";
     $contactres = mysqli_query($con,$contactquery);
+	$flag=0;
     if(mysqli_num_rows($contactres) > 0){
         $contactres = mysqli_fetch_array($contactres);
-        if($contactres['accept']==1)
-            echo "<script>alert('You already have this contact. Check your acquaintances section in the dashboard.');</script>";
-        elseif ($contactres['ban']==1)
+        if($contactres['accept']==1){
+			echo "<script>alert('You already have this contact. Check your acquaintances section in the dashboard.');</script>";
+		}
+		elseif ($contactres['ban']==1){
             echo "<script>alert('You have been banned from making contact requests by this user.');</script>";
-        elseif($contactres['wait']==1)
+		}
+		elseif($contactres['wait']==1){
             echo "<script>alert('You have already sent/received contact request to/from this user. Check your dashboard.');</script>";
+		}
+		elseif($contactres['reject']==1){
+			$flag=1;
+		}
     }
     else{
-        $rejectVal=0;
-        $acceptVal=0;
-        $waitVal=1;
-        $banVal=0;
-        $contactReqQuery ="INSERT INTO contact (accept,reject,wait,ban,senderID,receiverID) VALUES ($acceptVal,$rejectVal,$waitVal,$banVal,'$sid','$rid')";
+        $contactReqQuery ="INSERT INTO contact (accept,reject,wait,ban,senderID,receiverID) VALUES (0,0,1,0,'$sid','$rid')";
         $contactReqQueryResult = mysqli_query($con,$contactReqQuery) or die(0);
         if($contactReqQueryResult==0){
             echo "<script>alert('Failed to send request');</script>";
@@ -60,6 +63,16 @@ $query ="SELECT accept,reject,wait,senderID,receiverID from (senderID='$_SESSION
             echo "<script>alert('Sent contact request!');</script>";
         }
     }
+	if($flag==1){
+		$contactReqQuery ="UPDATE contact SET accept=0,reject=0,wait=1,ban=0 WHERE (senderID='$sid' AND receiverID='$rid') OR (receiverID='$rid' AND senderID='$sid')";
+        $contactReqQueryResult = mysqli_query($con,$contactReqQuery) or die(0);
+        if($contactReqQueryResult==0){
+            echo "<script>alert('Failed to send request');</script>";
+        }
+        else{
+            echo "<script>alert('You had been rejected. Sent contact request again!');</script>";
+        }
+	}
 }
 
 ?>
@@ -67,6 +80,7 @@ $query ="SELECT accept,reject,wait,senderID,receiverID from (senderID='$_SESSION
         <ul>
             <li><a href="../logout/logout.php">Logout</a></li>
 			<li><a href="../dashboard/dashboard.php">Dashboard</a></li>
+			<li><a href="../home/home.php">Home</a></li>
             <li>
                 <form name="searchForm" id="searchForm" action="../search/search.php" method="get">
 
@@ -75,7 +89,7 @@ $query ="SELECT accept,reject,wait,senderID,receiverID from (senderID='$_SESSION
 
                 </form>
             </li>
-            <li id="logo"><a href="../home.php">SkillMatch</a></li>
+            <li id="logo"><a href="../home/home.php">SkillMatch</a></li>
         </ul>
     </nav>
     <header>
@@ -367,6 +381,8 @@ else{
         </article>
         <article id="contactReq">
             <?php
+			if($regno==$usrno) echo "You cannot send a contact request to yourself.";
+			else{
             $isAcquaintQ = "SELECT * from contact where accept = 1 and ((senderID='$usrno' and receiverID='$regno') OR (senderID='$regno' and receiverID='$usrno')) ";
             $isAquaintRows = mysqli_query($con,$isAcquaintQ) or die("There was an error verifying your acquaintance status");
             if(mysqli_num_rows($isAquaintRows)==0)
@@ -375,6 +391,7 @@ else{
                 echo "You are already acquainted to this person. Check your dashboard!";
                 //printing contact details here also, (future ideas)
             }
+			}
 			?>
             <!--
             <div class="request">

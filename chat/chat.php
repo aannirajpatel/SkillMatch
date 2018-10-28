@@ -28,13 +28,14 @@ $lname = $cousernameResult['last_name'];
         <ul>
             <li><a href="../logout/logout.php">Logout</a></li>
             <li><a href="../dashboard/dashboard.php">Dashboard</a></li>
+            <li><a href="../home/home.php">Home</a></li>
             <li>
                 <form name="searchForm" id="searchForm" action="../search/search.php" method="get">
                     <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
                 </form>
             </li>
-            <li id="logo"><a href="../home.php">SkillMatch</a></li>
+            <li id="logo"><a href="../home/home.php">SkillMatch</a></li>
         </ul>
     </nav>
     <header>
@@ -42,7 +43,7 @@ $lname = $cousernameResult['last_name'];
     <section class="chat">
         
         <div class="showmessages" id="showmessagescont">
-<!--             <div class="received">
+<!--   SAMPLE OF HOW THIS DIV SHOULD LOOK WHEN LOADED...          <div class="received">
                 This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message. This is a sample message.
                 <div id="statsDisp">[Timestamp: 10:00PM]</div>
             </div>

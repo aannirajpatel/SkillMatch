@@ -16,13 +16,13 @@
 
     <nav>
         <ul>
-            <li class="active"><a href="./home.php">Home</a></li>
-            <li><a href="./dashboard/dashboard.php">Dashboard</a></li>
             <li><a href="./logout/logout.php">Logout</a></li>
+            <li><a href="./dashboard/dashboard.php">Dashboard</a></li>
+            <li class="active"><a href="./home.php">Home</a></li>
             <li>
-                <form name="searchForm" id="searchForm" action="./search/searchresultdemo.html">
+                <form name="searchForm" id="searchForm" action="./search/search.php">
 
-                    <input type="text" name="searchText" id="searchInput" />
+                    <input type="text" name="query" id="searchInput" />
                     <input type="submit" value="Search" id="searchButton" />
 
                 </form>
